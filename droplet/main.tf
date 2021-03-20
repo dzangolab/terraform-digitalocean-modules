@@ -12,7 +12,7 @@ resource "digitalocean_droplet" "this" {
   private_networking = var.private_networking
   region             = var.region
   size               = var.size
-  ssh_keys           = data.digitalocean_ssh_key.ssh_keys[*].id
+  ssh_keys           = var.ssh_keys[*].id
   tags               = var.tags
   user_data = templatefile(var.user_data, {
     groups    = join(",", var.user_groups)
