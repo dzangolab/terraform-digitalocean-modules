@@ -32,7 +32,7 @@ No Modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| droplet\_id | (Optional) The ID of Droplet that the Floating IP will be assigned to. | `any` | n/a | yes |
+| droplet\_id | (Optional) The ID of Droplet that the Floating IP will be assigned to. | `string` | n/a | yes |
 | region | (Required) The region that the Floating IP is reserved to. | `string` | `"sgp1"` | no |
 
 ## Outputs
