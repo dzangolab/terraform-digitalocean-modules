@@ -43,7 +43,7 @@ resource "digitalocean_floating_ip_assignment" "floating_ip" {
 }
 
 resource "digitalocean_volume_attachment" "volumes" {
-  for_each = toset(var.volumes)
+  for_each   = toset(var.volumes)
   droplet_id = digitalocean_droplet.this.id
-  volume_id = lookup(each.key, "id")
+  volume_id  = lookup(each.key, "id")
 }
