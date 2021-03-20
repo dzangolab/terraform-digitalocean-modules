@@ -119,7 +119,7 @@ variable "username" {
 variable "volumes" {
   default     = []
   description = "Names of block storage volumes to be attached to the droplet."
-  type        = list
+  type        = list(map(string))
 }
 
 variable "vpc_id" {

@@ -55,7 +55,7 @@ No Modules.
 | user\_data | Relative path to user-data template file | `string` | `"./templates/cloud-config.tmpl"` | no |
 | user\_groups | List of groups to assign to user | `list(string)` | <pre>[<br>  "sudo"<br>]</pre> | no |
 | username | Username of the user to be created on the droplet | `string` | n/a | yes |
-| volumes | Names of block storage volumes to be attached to the droplet. | `map(string)` | `[]` | no |
+| volumes | Names of block storage volumes to be attached to the droplet. | `list(any)` | `[]` | no |
 | vpc\_id | The ID of the VPC where the droplet will be located. | `string` | `null` | no |
 
 ## Outputs
