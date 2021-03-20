@@ -4,7 +4,7 @@
 
 variable "digital_ocean_token" {
   description = "Digital Ocean token"
-  type = string
+  type        = string
 }
 
 //-------------------------------------------------------------------
@@ -14,13 +14,13 @@ variable "digital_ocean_token" {
 variable "backups" {
   default     = false
   description = "Enable backups on droplet"
-  type = boolean
+  type = bool
 }
 
 variable "floating_ip" {
   default     = null
   description = "Floating IP address(if available) to assign to the droplet"
-  type = string
+  type        = string
 }
 
 variable "image" {
@@ -31,16 +31,18 @@ variable "image" {
 variable "ipv6" {
   default     = false
   description = "Enable ipv6 on droplet"
+  type = bool
 }
 
 variable "monitoring" {
   default     = true
   description = "Enable monitoring on droplet"
+  type = bool
 }
 
 variable "name" {
   description = "The droplet name"
-  type = string
+  type        = string
 }
 
 variable "packages" {
@@ -52,23 +54,24 @@ variable "packages" {
 variable "private_networking" {
   default     = true
   description = "Boolean controlling if private networking is enabled. When VPC is enabled on an account, this will provision the droplet inside of your account's default VPC for the region. Use the vpc_uuid attribute to specify a different VPC."
+  type = bool
 }
 
 variable "project_id" {
   description = "The ID of the project to which the droplet is assigned"
-  type = string
+  type        = string
 }
 
 variable "region" {
   default     = "sgp1"
   description = "The region to start in."
-  type = string
+  type        = string
 }
 
 variable "size" {
   default     = "s-1vcpu-2gb"
   description = "Size of the droplet"
-  type = string
+  type        = string
 }
 
 variable "ssh_keys" {
@@ -79,7 +82,7 @@ variable "ssh_keys" {
 variable "swap_file" {
   default     = "/swap"
   description = "Name of swap file"
-  type = string
+  type        = string
 }
 
 variable "swap_size" {
@@ -97,7 +100,7 @@ variable "tags" {
 variable "user_data" {
   default     = "./templates/cloud-config.tmpl"
   description = "Relative path to user-data template file"
-  type = string
+  type        = string
 }
 
 variable "user_groups" {
@@ -111,7 +114,7 @@ variable "user_groups" {
 variable "username" {
   default     = "dzangolab"
   description = "Username of the user to access the droplet"
-  type = string
+  type        = string
 }
 
 variable "volumes" {
@@ -123,5 +126,5 @@ variable "volumes" {
 variable "vpc_id" {
   default     = null
   description = "The ID of the VPC where the droplet will be located."
-  rtype = string
+  type        = string
 }

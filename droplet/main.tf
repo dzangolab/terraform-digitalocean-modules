@@ -38,7 +38,7 @@ resource "digitalocean_droplet" "this" {
 
 resource "digitalocean_project_resources" "project" {
   depends_on = [digitalocean_droplet.this]
-  project = var.project_id
+  project    = var.project_id
   resources = [
     digitalocean_droplet.this.urn
   ]
