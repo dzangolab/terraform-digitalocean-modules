@@ -3,34 +3,34 @@ output "disk" {
   value       = digitalocean_droplet.this.disk
 }
 
-output id {
+output "id" {
   description = "The ID of the droplet"
-  value = digitalocean_droplet.this.id
+  value       = digitalocean_droplet.this.id
 }
 
-output image {
+output "image" {
   description = "The image of the droplet"
-  value = digitalocean_droplet.this.image
+  value       = digitalocean_droplet.this.image
 }
 
-output ipv4_address {
+output "ipv4_address" {
   description = "The IPv4 address of the droplet"
-  value = digitalocean_droplet.this.ipv4_address
+  value       = digitalocean_droplet.this.ipv4_address
 }
 
-output ipv4_address_private {
+output "ipv4_address_private" {
   description = "The private networking IPv4 address of the droplet"
-  value = digitalocean_droplet.this.ipv4_address_private
+  value       = digitalocean_droplet.this.ipv4_address_private
 }
 
-output ipv6 {
+output "ipv6" {
   description = "Is IPv6 enabled"
-  value = digitalocean_droplet.this.ipv6
+  value       = digitalocean_droplet.this.ipv6
 }
 
-output ipv6_address {
+output "ipv6_address" {
   description = "The IPv6 address of the droplet"
-  value = digitalocean_droplet.this.ipv6_address
+  value       = digitalocean_droplet.this.ipv6_address
 }
 
 output "locked" {

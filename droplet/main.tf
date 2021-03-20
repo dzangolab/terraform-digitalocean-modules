@@ -1,12 +1,3 @@
-data "digitalocean_project" "project" {
-  name = var.project
-}
-
-data "digitalocean_volume" "volumes" {
-  count = length(var.volumes)
-  name  = var.volumes[count.index]
-}
-
 data "digitalocean_ssh_key" "ssh_keys" {
   count = length(var.ssh_key_names)
   name  = var.ssh_key_names[count.index]
