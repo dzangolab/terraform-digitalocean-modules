@@ -1,6 +1,6 @@
 data "digitalocean_ssh_key" "ssh_keys" {
-  count = length(var.ssh_key_names)
-  name  = var.ssh_key_names[count.index]
+  count = length(var.ssh_keys)
+  name  = var.ssh_keys[count.index]
 }
 
 resource "digitalocean_droplet" "this" {
@@ -12,7 +12,7 @@ resource "digitalocean_droplet" "this" {
   private_networking = var.private_networking
   region             = var.region
   size               = var.size
-  ssh_keys           = var.ssh_keys[*].id
+  ssh_keys           = data.digitalocean_ssh_keys.ssh_keys[*].id
   tags               = var.tags
   user_data = templatefile(var.user_data, {
     groups    = join(",", var.user_groups)

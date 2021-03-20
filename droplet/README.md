@@ -28,10 +28,8 @@ No Modules.
 |------|
 | [digitalocean_droplet](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet) |
 | [digitalocean_floating_ip_assignment](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/floating_ip_assignment) |
-| [digitalocean_project](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/data-sources/project) |
 | [digitalocean_project_resources](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/project_resources) |
 | [digitalocean_ssh_key](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/data-sources/ssh_key) |
-| [digitalocean_volume](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/data-sources/volume) |
 
 ## Inputs
 
