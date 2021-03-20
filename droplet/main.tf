@@ -23,7 +23,7 @@ resource "digitalocean_droplet" "this" {
     swap_size = var.swap_size
     volumes   = var.volumes
   })
-  volume_ids = var.volumes_ids
+  volume_ids = var.volume_ids
   vpc_uuid   = var.vpc_id
 }
 

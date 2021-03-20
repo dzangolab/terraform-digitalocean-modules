@@ -30,7 +30,6 @@ No Modules.
 | [digitalocean_floating_ip_assignment](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/floating_ip_assignment) |
 | [digitalocean_project_resources](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/project_resources) |
 | [digitalocean_ssh_key](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/data-sources/ssh_key) |
-| [digitalocean_volume_attachment](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/volume_attachment) |
 
 ## Inputs
 
@@ -55,7 +54,8 @@ No Modules.
 | user\_data | Relative path to user-data template file | `string` | `"./templates/cloud-config.tmpl"` | no |
 | user\_groups | List of groups to assign to user | `list(string)` | <pre>[<br>  "sudo"<br>]</pre> | no |
 | username | Username of the user to be created on the droplet | `string` | n/a | yes |
-| volumes | Names of block storage volumes to be attached to the droplet. | `list(map(string))` | `[]` | no |
+| volume\_ids | Ids of block storage volumes to be attached to the droplet. | `list(string)` | `[]` | no |
+| volume\_mounts | Location where block storage volumes should be mounted on the droplet. | `list(string)` | `[]` | no |
 | vpc\_id | The ID of the VPC where the droplet will be located. | `string` | `null` | no |
 
 ## Outputs
