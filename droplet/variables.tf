@@ -116,10 +116,16 @@ variable "username" {
   type        = string
 }
 
-variable "volumes" {
+variable "volume_ids" {
   default     = []
-  description = "Names of block storage volumes to be attached to the droplet."
-  type        = list(map(string))
+  description = "Ids of block storage volumes to be attached to the droplet."
+  type        = list(string)
+}
+
+variable "volume_mounts" {
+  default     = []
+  description = "Location where block storage volumes should be mounted on the droplet."
+  type        = list(string)
 }
 
 variable "vpc_id" {

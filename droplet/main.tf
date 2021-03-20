@@ -23,7 +23,7 @@ resource "digitalocean_droplet" "this" {
     swap_size = var.swap_size
     volumes   = var.volumes
   })
-  volume_ids = var.volumes[*].id
+  volume_ids = var.volumes_ids
   vpc_uuid   = var.vpc_id
 }
 
@@ -40,10 +40,4 @@ resource "digitalocean_floating_ip_assignment" "floating_ip" {
   depends_on = [digitalocean_droplet.this]
   droplet_id = digitalocean_droplet.this.id
   ip_address = var.floating_ip
-}
-
-resource "digitalocean_volume_attachment" "volumes" {
-  for_each   = toset(var.volumes)
-  droplet_id = digitalocean_droplet.this.id
-  volume_id  = lookup(each.key, "id")
 }
