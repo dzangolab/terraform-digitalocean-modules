@@ -21,7 +21,7 @@ resource "digitalocean_droplet" "this" {
     username  = var.username
     swap_file = var.swap_file
     swap_size = var.swap_size
-    volumes   = var.volumes
+    volumes   = var.volume_mounts
   })
   volume_ids = var.volume_ids
   vpc_uuid   = var.vpc_id
