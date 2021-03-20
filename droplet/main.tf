@@ -24,7 +24,7 @@ resource "digitalocean_droplet" "this" {
     volumes   = var.volumes
   })
   volume_ids = var.volumes[*].id
-  vpc_uuid   = var.vpc != null ? data.digitalocean_vpc.vpc[0].id : null
+  vpc_uuid   = var.vpc_id
 }
 
 resource "digitalocean_project_resources" "project" {

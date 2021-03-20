@@ -112,8 +112,7 @@ variable "user_groups" {
 }
 
 variable "username" {
-  default     = "dzangolab"
-  description = "Username of the user to access the droplet"
+  description = "Username of the user to be created on the droplet"
   type        = string
 }
 
