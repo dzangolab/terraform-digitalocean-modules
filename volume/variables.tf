@@ -28,7 +28,7 @@ variable "initial_filesystem_type" {
 }
 
 variable "name" {
-  description = "A name for the block storage volume. Must be lowercase and be composed only of numbers, letters and "-", up to a limit of 64 characters."
+  description = "A name for the block storage volume. Must be lowercase and be composed only of numbers, letters and \" - \", up to a limit of 64 characters."
   type        = string
 }
 
