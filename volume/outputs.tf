@@ -55,5 +55,5 @@ output "tags" {
 
 output "urn" {
   description = "The uniform resource name (URN) for the volume."
-  value       = digitalocean_vpc.this.urn
+  value       = digitalocean_volume.this.urn
 }
