@@ -14,7 +14,7 @@ variable "digital_ocean_token" {
 variable "backups" {
   default     = false
   description = "Enable backups on droplet"
-  type = bool
+  type        = bool
 }
 
 variable "floating_ip" {
@@ -31,13 +31,13 @@ variable "image" {
 variable "ipv6" {
   default     = false
   description = "Enable ipv6 on droplet"
-  type = bool
+  type        = bool
 }
 
 variable "monitoring" {
   default     = true
   description = "Enable monitoring on droplet"
-  type = bool
+  type        = bool
 }
 
 variable "name" {
@@ -54,7 +54,7 @@ variable "packages" {
 variable "private_networking" {
   default     = true
   description = "Boolean controlling if private networking is enabled. When VPC is enabled on an account, this will provision the droplet inside of your account's default VPC for the region. Use the vpc_uuid attribute to specify a different VPC."
-  type = bool
+  type        = bool
 }
 
 variable "project_id" {
