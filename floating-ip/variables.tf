@@ -1,10 +1,10 @@
-variable "digital_ocean_token" {
+variable "digitalocean_token" {
   description = "Digital Ocean token"
-  type = string
+  type        = string
 }
 
 variable "droplet_id" {
-  default = null
+  default     = null
   description = "(Optional) The ID of Droplet that the Floating IP will be assigned to."
   type        = string
 }
