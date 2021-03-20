@@ -5,16 +5,18 @@ This modules provisions a DigitalOcean floating IP address.
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-| Name      | Version   |
-| --------- | --------- |
+| Name | Version |
+|------|---------|
 | terraform | >= 0.13.0 |
-| aws       | ~> 3.27   |
+| digitalocean | ~> 1.22.2 |
+| local | ~> 1.4.0 |
+| template | ~> 2.1.2 |
 
 ## Providers
 
 | Name | Version |
-| ---- | ------- |
-| aws  | ~> 3.27 |
+|------|---------|
+| digitalocean | ~> 1.22.2 |
 
 ## Modules
 
@@ -22,21 +24,21 @@ No Modules.
 
 ## Resources
 
-| Name                                                                                       |
-| ------------------------------------------------------------------------------------------ |
-| [aws_eip](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip) |
+| Name |
+|------|
+| [digitalocean_floating_ip](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/floating_ip) |
 
 ## Inputs
 
-| Name | Description                           | Type     | Default | Required |
-| ---- | ------------------------------------- | -------- | ------- | :------: |
-| name | Name of elastic ip address            | `string` | `""`    |    no    |
-| vpc  | Boolean if the EIP is in a VPC or not | `bool`   | `true`  |    no    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| droplet\_id | (Optional) The ID of Droplet that the Floating IP will be assigned to. | `any` | n/a | yes |
+| region | (Required) The region that the Floating IP is reserved to. | `string` | `"sgp1"` | no |
 
 ## Outputs
 
-| Name           | Description |
-| -------------- | ----------- |
-| allocation\_id | n/a         |
-| public\_ip     | n/a         |
+| Name | Description |
+|------|-------------|
+| ip\_address | n/a |
+| urn | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
