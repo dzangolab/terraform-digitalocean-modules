@@ -1,16 +1,3 @@
-//-------------------------------------------------------------------
-// Secrets
-//-------------------------------------------------------------------
-
-variable "digital_ocean_token" {
-  description = "Digital Ocean token"
-  type        = string
-}
-
-//-------------------------------------------------------------------
-// Digital Ocean droplet settings
-//-------------------------------------------------------------------
-
 variable "backups" {
   default     = false
   description = "Enable backups on droplet"
