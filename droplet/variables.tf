@@ -4,6 +4,11 @@ variable "backups" {
   type        = bool
 }
 
+variable "digitalocean_token" {
+  description = "Digital Ocean token"
+  type        = string
+}
+
 variable "floating_ip" {
   default     = null
   description = "Floating IP address(if available) to assign to the droplet"
