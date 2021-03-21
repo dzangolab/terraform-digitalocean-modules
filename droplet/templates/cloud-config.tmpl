@@ -24,7 +24,7 @@ bootcmd:
 %{ endfor ~}
 
 mounts:
-%{ for volume in volume ~}
+%{ for volume in volumes ~}
   - [ "/dev/disk/by-id/scsi-0DO_Volume_${volume}", "/mnt/${volume}", auto, "discard,defaults,noatime" ]
 %{ endfor ~}
 
