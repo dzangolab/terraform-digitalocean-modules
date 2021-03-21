@@ -39,4 +39,9 @@ resource "digitalocean_floating_ip_assignment" "floating_ip" {
   depends_on = [digitalocean_droplet.this]
   droplet_id = digitalocean_droplet.this.id
   ip_address = var.floating_ip
+
+  provisioner "local-exec" {
+    when    = destroy
+    command = "sed -i -e '/^${self.ip_address} .*/d' ~/.ssh/known_hosts"
+  }
 }
