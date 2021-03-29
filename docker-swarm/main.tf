@@ -18,14 +18,20 @@ resource "digitalocean_droplet" "manager" {
   private_networking = true
   region = var.region
   size = var.manager_size
-  user_data = templatefile("templates/cloud-config.tmpl", {
-    ssh_keys  = data.digitalocean_ssh_key.ssh_keys[*].public_key
-    username  = var.username
-  })
+  ssh_keys = data.digitalocean_ssh_key.ssh_keys[*].id
   vpc_uuid   = var.vpc_id
 
   provisioner "remote-exec" {
+    connection  {
+      host = digitalocean_droplet.manager[count.index].ipv4_address
+      private_key = file("~/.ssh/id_ecdsa")
+      type = "ssh"
+      user = "ubuntu"
+    }
+
     inline = [
+      "sudo apt-get -q -y update"
+      "sudo apt-get -q -y upgrade"
       "docker swarm init --advertise-addr ${digitalocean_droplet.manager[0].ipv4_address_private}"
     ]
   }
