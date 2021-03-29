@@ -11,7 +11,7 @@ resource "digitalocean_droplet" "manager" {
     var.region
   )
   private_networking = true
-  vpc_uuid   = var.vpc.id
+  vpc_uuid   = var.vpc_id
 
   provisioner "remote-exec" {
     inline = [
@@ -33,7 +33,7 @@ resource "digitalocean_droplet" "worker" {
     var.region
   )
   private_networking = true
-  vpc_uuid   = var.vpc.id
+  vpc_uuid   = var.vpc_id
 }
 
 resource "digitalocean_project_resources" "manager_project" {
