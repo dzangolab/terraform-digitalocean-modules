@@ -28,8 +28,8 @@ resource "digitalocean_droplet" "manager" {
     }
 
     inline = [
-      "sudo apt-get -q -y update",
-      "sudo apt-get -q -y upgrade",
+      "apt-get -q -y update",
+      "apt-get -q -y upgrade",
       "docker swarm init --advertise-addr ${digitalocean_droplet.manager.ipv4_address_private}"
     ]
   }
@@ -61,8 +61,8 @@ resource "digitalocean_droplet" "managers" {
     }
 
     inline = [
-      "sudo apt-get -q -y update",
-      "sudo apt-get -q -y upgrade"
+      "apt-get -q -y update",
+      "apt-get -q -y upgrade"
     ]
   }
 }
