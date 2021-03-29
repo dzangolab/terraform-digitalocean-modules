@@ -42,6 +42,11 @@ variable "region" {
   type        = string
 }
 
+variable "username" {
+  description = "Username of the user to be created on the droplet"
+  type        = string
+}
+
 variable "vpc_id" {
   default     = null
   description = "The ID of the VPC where the droplet will be located."

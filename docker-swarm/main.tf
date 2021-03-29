@@ -13,6 +13,10 @@ resource "digitalocean_droplet" "manager" {
   private_networking = true
   region = var.region
   size = var.manager_size
+  user_data = templatefile("templates/cloud-config.tmpl", {
+    ssh_keys  = data.digitalocean_ssh_key.ssh_keys[*].public_key
+    username  = var.username
+  })
   vpc_uuid   = var.vpc_id
 
   provisioner "remote-exec" {
