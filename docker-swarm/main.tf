@@ -24,7 +24,6 @@ resource "digitalocean_droplet" "manager" {
   provisioner "remote-exec" {
     connection  {
       host = digitalocean_droplet.manager[count.index].ipv4_address
-      private_key = file("~/.ssh/id_ecdsa")
       type = "ssh"
       user = "ubuntu"
     }
