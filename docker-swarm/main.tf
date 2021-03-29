@@ -11,6 +11,7 @@ resource "digitalocean_droplet" "manager" {
     var.region
   )
   private_networking = true
+  region = var.region
   size = var.manager_size
   vpc_uuid   = var.vpc_id
 
@@ -34,6 +35,7 @@ resource "digitalocean_droplet" "worker" {
     var.region
   )
   private_networking = true
+  region = var.region
   size = var.worker_size
   vpc_uuid   = var.vpc_id
 }
