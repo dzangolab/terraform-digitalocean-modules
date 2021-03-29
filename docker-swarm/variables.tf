@@ -42,11 +42,6 @@ variable "region" {
   type        = string
 }
 
-variable "ssh_keys" {
-  description = "A list of SSH key names to enable on droplet"
-  type        = list(string)
-}
-
 variable "vpc_id" {
   default     = null
   description = "The ID of the VPC where the droplet will be located."
