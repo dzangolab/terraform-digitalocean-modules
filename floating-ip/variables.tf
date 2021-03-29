@@ -16,6 +16,12 @@ variable "droplet_id" {
   type        = string
 }
 
+variable "ip_count" {
+  default     = 1
+  description = "The number of loating IPs to create"
+  type        = number
+}
+
 variable "region" {
   default     = "sgp1"
   description = "(Required) The region that the Floating IP is reserved to."
