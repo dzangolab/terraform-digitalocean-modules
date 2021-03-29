@@ -14,6 +14,7 @@ variable "manager_image" {
 }
 
 variable "manager_name" {
+  default = "manager"
   description = "The name for manager nodes"
   type        = string
 }
@@ -63,6 +64,7 @@ variable "worker_image" {
 }
 
 variable "worker_name" {
+  default = "worker"
   description = "The name for worker nodes"
   type        = string
 }
