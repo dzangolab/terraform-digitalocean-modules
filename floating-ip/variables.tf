@@ -1,10 +1,3 @@
-variable "count" {
-  default     = 1
-  description = "The number of loating IPs to create"
-  type        = number
-}
-
-
 variable "digitalocean_token" {
   description = "Digital Ocean token"
   type        = string
