@@ -41,17 +41,19 @@ resource "digitalocean_droplet" "worker" {
 }
 
 resource "digitalocean_project_resources" "manager_project" {
+  count = var.manager_count
   depends_on = [digitalocean_droplet.manager]
   project    = var.project_id
   resources = [
-    digitalocean_droplet.manager.urn
+    digitalocean_droplet.manager[count.index].urn
   ]
 }
 
 resource "digitalocean_project_resources" "worker_project" {
+  count = var.worker_count
   depends_on = [digitalocean_droplet.worker]
   project    = var.project_id
   resources = [
-    digitalocean_droplet.worker.urn
+    digitalocean_droplet.worker[count.index].urn
   ]
 }
