@@ -30,8 +30,8 @@ resource "digitalocean_droplet" "manager" {
     }
 
     inline = [
-      "sudo apt-get -q -y update"
-      "sudo apt-get -q -y upgrade"
+      "sudo apt-get -q -y update",
+      "sudo apt-get -q -y upgrade",
       "docker swarm init --advertise-addr ${digitalocean_droplet.manager[0].ipv4_address_private}"
     ]
   }
