@@ -55,7 +55,7 @@ resource "digitalocean_droplet" "managers" {
 
   provisioner "remote-exec" {
     connection  {
-      host = digitalocean_droplet.manager[count.index].ipv4_address
+      host = self.ipv4_address
       type = "ssh"
       user = "root"
     }
