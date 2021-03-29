@@ -1,3 +1,8 @@
+data "digitalocean_ssh_key" "ssh_keys" {
+  count = length(var.ssh_keys)
+  name  = var.ssh_keys[count.index]
+}
+
 resource "digitalocean_droplet" "manager" {
   backups = false
   count   = var.manager_count
