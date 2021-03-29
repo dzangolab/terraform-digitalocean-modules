@@ -5,14 +5,46 @@ data "digitalocean_ssh_key" "ssh_keys" {
 
 resource "digitalocean_droplet" "manager" {
   backups = false
-  count   = var.manager_count
   image   = var.manager_image
   ipv6    = false
   monitoring = var.monitoring
   name = format(
     "%s-%02d.%s",
     var.manager_name,
-    count.index + 1,
+    1,
+    var.region
+  )
+  private_networking = true
+  region = var.region
+  size = var.manager_size
+  ssh_keys = data.digitalocean_ssh_key.ssh_keys[*].id
+  vpc_uuid   = var.vpc_id
+
+  provisioner "remote-exec" {
+    connection  {
+      host = digitalocean_droplet.manager.ipv4_address
+      type = "ssh"
+      user = "root"
+    }
+
+    inline = [
+      "sudo apt-get -q -y update",
+      "sudo apt-get -q -y upgrade",
+      "docker swarm init --advertise-addr ${digitalocean_droplet.manager.ipv4_address_private}"
+    ]
+  }
+}
+
+resource "digitalocean_droplet" "managers" {
+  backups = false
+  count   = var.manager_count - 1
+  image   = var.manager_image
+  ipv6    = false
+  monitoring = var.monitoring
+  name = format(
+    "%s-%02d.%s",
+    var.manager_name,
+    count.index + 2,
     var.region
   )
   private_networking = true
@@ -30,8 +62,7 @@ resource "digitalocean_droplet" "manager" {
 
     inline = [
       "sudo apt-get -q -y update",
-      "sudo apt-get -q -y upgrade",
-      "docker swarm init --advertise-addr ${digitalocean_droplet.manager[0].ipv4_address_private}"
+      "sudo apt-get -q -y upgrade"
     ]
   }
 }
@@ -54,20 +85,16 @@ resource "digitalocean_droplet" "worker" {
   vpc_uuid   = var.vpc_id
 }
 
-resource "digitalocean_project_resources" "manager_project" {
-  count = var.manager_count
-  depends_on = [digitalocean_droplet.manager]
-  project    = var.project_id
-  resources = [
-    digitalocean_droplet.manager[count.index].urn
+resource "digitalocean_project_resources" "project" {
+  depends_on = [
+    digitalocean_droplet.manager,
+    digitalocean_droplet.managers,
+    digitalocean_droplet.worker,
   ]
-}
-
-resource "digitalocean_project_resources" "worker_project" {
-  count = var.worker_count
-  depends_on = [digitalocean_droplet.worker]
-  project    = var.project_id
-  resources = [
-    digitalocean_droplet.worker[count.index].urn
-  ]
+  project   = var.project_id
+  resources = concat(
+    digitalocean_droplet.manager.*.urn, 
+    digitalocean_droplet.managers.*.urn, 
+    digitalocean_droplet.worker.*.urn
+  )
 }
