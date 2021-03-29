@@ -22,7 +22,6 @@ resource "digitalocean_droplet" "manager" {
 
   provisioner "remote-exec" {
     connection  {
-      host = self.ipv4_address
       type = "ssh"
       user = "root"
     }
@@ -55,8 +54,7 @@ resource "digitalocean_droplet" "managers" {
 
   provisioner "remote-exec" {
     connection  {
-      host = self.ipv4_address
-      type = "ssh"
+     type = "ssh"
       user = "root"
     }
 
