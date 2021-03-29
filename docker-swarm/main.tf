@@ -25,7 +25,7 @@ resource "digitalocean_droplet" "manager" {
     connection  {
       host = digitalocean_droplet.manager[count.index].ipv4_address
       type = "ssh"
-      user = "ubuntu"
+      user = "root"
     }
 
     inline = [
