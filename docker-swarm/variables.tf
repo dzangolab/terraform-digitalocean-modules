@@ -42,6 +42,11 @@ variable "region" {
   type        = string
 }
 
+variable "ssh_keys" {
+  description = "A list of SSH key names to enable on droplet"
+  type        = list(string)
+}
+
 variable "username" {
   description = "Username of the user to be created on the droplet"
   type        = string
