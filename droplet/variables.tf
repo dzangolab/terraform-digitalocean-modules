@@ -115,7 +115,7 @@ variable "volumes" {
     path = ""
   }]
   description = "List of block storage volumes to be attached to the droplet."
-  type        = list({
+  type        = list(object{
     id   = string
     name = string
     path = string
