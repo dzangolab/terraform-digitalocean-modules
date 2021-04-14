@@ -87,7 +87,7 @@ resource "local_file" "ansible_inventory" {
   content = templatefile(
     var.ansible_inventory,
     {
-      name      = digitalocean_droplet.droplet.name
+      name      = digitalocean_droplet.this.name
       public_ip = local.floating_ip !=  null ? local.floating_ip : digitalocean_droplet.droplet.ipv4_address
     }
   )
