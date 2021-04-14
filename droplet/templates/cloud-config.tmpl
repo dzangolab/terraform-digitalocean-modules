@@ -26,6 +26,7 @@ bootcmd:
 mounts:
 %{ for volume in volumes ~}
   - [ "/dev/disk/by-id/scsi-0DO_Volume_${volume.name}", "/mnt/${volume.path}", auto, "discard,defaults,noatime" ]
+  - [ "chown", "/mnt/${volume.path}", "${username}" ] 
 %{ endfor ~}
 
 %{ if swap_size > 0 ~}
