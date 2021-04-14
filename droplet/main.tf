@@ -20,9 +20,9 @@ resource "digitalocean_droplet" "this" {
     username  = var.username
     swap_file = var.swap_file
     swap_size = var.swap_size
-    volumes   = var.volumes[0].id = "none" ? [] : var.volumes  
+    volumes   = var.volumes[0].id != "none" ? var.volumes : []  
   })
-  volume_ids = var.volumes[0].id = "none" ? [] : var.volumes.*.id
+  volume_ids = var.volumes[0].id != "none" ? var.volumes.*.id : []
   vpc_uuid   = var.vpc_id
 }
 
