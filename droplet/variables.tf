@@ -78,7 +78,7 @@ variable "swap_file" {
 }
 
 variable "swap_size" {
-  default     = 2147483648
+  default     = 0
   description = "Size of swapfile in bytes"
   type        = number
 }
@@ -108,16 +108,18 @@ variable "username" {
   type        = string
 }
 
-variable "volume_ids" {
-  default     = []
-  description = "Ids of block storage volumes to be attached to the droplet."
-  type        = list(string)
-}
-
-variable "volume_mounts" {
-  default     = []
-  description = "Location where block storage volumes should be mounted on the droplet."
-  type        = list(string)
+variable "volumes" {
+  default     = [{
+    id   = "none"
+    name = ""
+    path = ""
+  }]
+  description = "List of block storage volumes to be attached to the droplet."
+  type        = list({
+    id   = string
+    name = string
+    path = string
+  })
 }
 
 variable "vpc_id" {
