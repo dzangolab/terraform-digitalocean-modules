@@ -1,3 +1,9 @@
+variable "ansible_inventory" {
+  default     = "templates/hosts.tmpl"
+  description = "Template for generating the ansible inventory"
+  type        = string
+}
+
 variable "backups" {
   default     = false
   description = "Enable backups on droplet"

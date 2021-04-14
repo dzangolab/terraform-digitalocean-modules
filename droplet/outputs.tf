@@ -82,3 +82,15 @@ output "volume_ids" {
   description = "A list of the attached block storage volumes"
   value       = digitalocean_droplet.this.volume_ids
 }
+
+resource "local_file" "ansible_inventory" {
+  content = templatefile(
+    var.ansible_inventory,
+    {
+      name      = digitalocean_droplet.droplet.name
+      public_ip = local.floating_ip !=  null ? local.floating_ip : digitalocean_droplet.droplet.ipv4_address
+    }
+  )
+  filename = "hosts"
+}
+
