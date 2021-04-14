@@ -23,7 +23,7 @@ bootcmd:
   - mkfs.ext4 /dev/disk/by-id/scsi-0DO_Volume_${volume.name}
   - mkdir /mnt/${volume.path}
   - chown ${username}:${username} /mnt/${volume.path}
-  - mount -o discard,defaults,noatime /dev/disk/by-id/scsi-0DO_Volume_${volulme.name} /mnt/${volume.path}
+  - mount -o discard,defaults,noatime /dev/disk/by-id/scsi-0DO_Volume_${volume.name} /mnt/${volume.path}
   - chown ${username}:${username} /mnt/${volume.path}
 %{ endfor ~}
 
