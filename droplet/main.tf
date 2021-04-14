@@ -12,6 +12,7 @@ resource "digitalocean_droplet" "this" {
   private_networking = var.private_networking
   region             = var.region
   size               = var.size
+  ssh_keys           = data.digitalocean_ssh_key.ssh_keys.*.id
   tags               = var.tags
   user_data = templatefile(var.user_data, {
     groups    = join(",", var.user_groups)
@@ -20,9 +21,9 @@ resource "digitalocean_droplet" "this" {
     username  = var.username
     swap_file = var.swap_file
     swap_size = var.swap_size
-    volumes   = var.volume_mounts
+    volumes   = var.volumes[0].id != "none" ? var.volumes : []  
   })
-  volume_ids = var.volume_ids
+  volume_ids = var.volumes[0].id != "none" ? var.volumes.*.id : []
   vpc_uuid   = var.vpc_id
 }
 
