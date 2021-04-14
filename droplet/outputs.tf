@@ -1,3 +1,7 @@
+locals {
+  floating_ip = var.floating_ip
+}
+
 output "disk" {
   description = "The size of the droplet's disk in GB"
   value       = digitalocean_droplet.this.disk
