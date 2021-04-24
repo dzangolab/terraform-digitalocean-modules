@@ -13,19 +13,9 @@ output "id" {
   value = digitalocean_firewall.this.id
 }
 
-output "inbound_rules" {
-  description = "The inbound access rule block for the Firewall."
-  value = digitalocean_firewall.this.inbound_rules
-}
-
 output "name" {
   description = "The name of the Firewall."
   value = digitalocean_firewall.this.name
-}
-
-output "outbound_rules" {
-  description = "The outbound access rule block for the Firewall."
-  value = digitalocean_firewall.this.outbound_rules
 }
 
 output "pending_changes" {
