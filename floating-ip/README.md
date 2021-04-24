@@ -41,6 +41,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_ip_address"></a> [ip\_address](#output\_ip\_address) | n/a |
-| <a name="output_urn"></a> [urn](#output\_urn) | n/a |
+| <a name="output_ip_address"></a> [ip\_address](#output\_ip\_address) | The IP Address of the resource. |
+| <a name="output_urn"></a> [urn](#output\_urn) | The uniform resource name of the floating ip. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
