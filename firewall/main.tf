@@ -15,7 +15,7 @@ resource "digitalocean_firewall" "this" {
     for_each = var.outbound_rules
     content {
       protocol = outbound_rule.value["protocol"]
-      source_tags = outbound_rule.value["desstination_tags"] 
+      destination_tags = outbound_rule.value["destination_tags"] 
     }
   }
 }
