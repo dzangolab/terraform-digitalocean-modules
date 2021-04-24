@@ -9,9 +9,8 @@ variable "droplet_ids" {
   type        = list(string)
 }
 
-variable "inbound_rules" {
-  default = []
-  description = "The inbound access rule block for the Firewall."
+variable "rules" {
+  description = "The inbound and outbound access rule block for the Firewall."
   type = list(object)
 }
 
