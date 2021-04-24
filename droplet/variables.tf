@@ -115,13 +115,13 @@ variable "username" {
 }
 
 variable "volumes" {
-  default     = [{
+  default = [{
     id   = "none"
     name = ""
     path = ""
   }]
   description = "List of block storage volumes to be attached to the droplet."
-  type        = list(object({
+  type = list(object({
     id   = string
     name = string
     path = string

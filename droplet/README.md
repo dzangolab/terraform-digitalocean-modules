@@ -17,6 +17,7 @@ This module povisions a DigitalOcean droplet.
 | Name | Version |
 |------|---------|
 | <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | >= 1.22.2 |
+| <a name="provider_local"></a> [local](#provider\_local) | >= 1.4.0 |
 
 ## Modules
 
@@ -29,12 +30,14 @@ No modules.
 | [digitalocean_droplet.this](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet) | resource |
 | [digitalocean_floating_ip_assignment.floating_ip](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/floating_ip_assignment) | resource |
 | [digitalocean_project_resources.project](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/project_resources) | resource |
+| [local_file.ansible_inventory](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [digitalocean_ssh_key.ssh_keys](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/data-sources/ssh_key) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_ansible_inventory"></a> [ansible\_inventory](#input\_ansible\_inventory) | Template for generating the ansible inventory | `string` | `"templates/hosts.tmpl"` | no |
 | <a name="input_backups"></a> [backups](#input\_backups) | Enable backups on droplet | `bool` | `false` | no |
 | <a name="input_digitalocean_token"></a> [digitalocean\_token](#input\_digitalocean\_token) | Digital Ocean token | `string` | n/a | yes |
 | <a name="input_floating_ip"></a> [floating\_ip](#input\_floating\_ip) | Floating IP address(if available) to assign to the droplet | `string` | `null` | no |
@@ -49,13 +52,12 @@ No modules.
 | <a name="input_size"></a> [size](#input\_size) | Size of the droplet | `string` | `"s-1vcpu-2gb"` | no |
 | <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | A list of SSH key names to enable on droplet | `list(string)` | n/a | yes |
 | <a name="input_swap_file"></a> [swap\_file](#input\_swap\_file) | Name of swap file | `string` | `"/swap"` | no |
-| <a name="input_swap_size"></a> [swap\_size](#input\_swap\_size) | Size of swapfile in bytes | `number` | `2147483648` | no |
+| <a name="input_swap_size"></a> [swap\_size](#input\_swap\_size) | Size of swapfile in bytes | `number` | `0` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A list of tags to apply on droplet | `list(string)` | `[]` | no |
 | <a name="input_user_data"></a> [user\_data](#input\_user\_data) | Relative path to user-data template file | `string` | `"./templates/cloud-config.tmpl"` | no |
 | <a name="input_user_groups"></a> [user\_groups](#input\_user\_groups) | List of groups to assign to user | `list(string)` | <pre>[<br>  "sudo"<br>]</pre> | no |
 | <a name="input_username"></a> [username](#input\_username) | Username of the user to be created on the droplet | `string` | n/a | yes |
-| <a name="input_volume_ids"></a> [volume\_ids](#input\_volume\_ids) | Ids of block storage volumes to be attached to the droplet. | `list(string)` | `[]` | no |
-| <a name="input_volume_mounts"></a> [volume\_mounts](#input\_volume\_mounts) | Location where block storage volumes should be mounted on the droplet. | `list(string)` | `[]` | no |
+| <a name="input_volumes"></a> [volumes](#input\_volumes) | List of block storage volumes to be attached to the droplet. | <pre>list(object({<br>    id   = string<br>    name = string<br>    path = string<br>  }))</pre> | <pre>[<br>  {<br>    "id": "none",<br>    "name": "",<br>    "path": ""<br>  }<br>]</pre> | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | The ID of the VPC where the droplet will be located. | `string` | `null` | no |
 
 ## Outputs

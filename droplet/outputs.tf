@@ -92,7 +92,7 @@ resource "local_file" "ansible_inventory" {
     var.ansible_inventory,
     {
       name      = digitalocean_droplet.this.name
-      public_ip = local.floating_ip !=  null ? local.floating_ip : digitalocean_droplet.this.ipv4_address
+      public_ip = local.floating_ip != null ? local.floating_ip : digitalocean_droplet.this.ipv4_address
     }
   )
   filename = "hosts"
