@@ -11,7 +11,7 @@ variable "droplet_ids" {
 
 variable "inbound_rules" {
   description = "The inbound and outbound access rule block for the Firewall."
-  type = list
+  type        = list(any)
 }
 
 variable "name" {
@@ -21,7 +21,7 @@ variable "name" {
 
 variable "outbound_rules" {
   description = "The inbound and outbound access rule block for the Firewall."
-  type = list
+  type        = list(any)
 }
 
 variable "tags" {

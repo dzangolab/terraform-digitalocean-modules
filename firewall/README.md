@@ -24,21 +24,28 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [digitalocean_floating_ip.this](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/floating_ip) | resource |
+| [digitalocean_firewall.this](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/firewall) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_digitalocean_token"></a> [digitalocean\_token](#input\_digitalocean\_token) | Digital Ocean token | `string` | n/a | yes |
-| <a name="input_droplet_id"></a> [droplet\_id](#input\_droplet\_id) | (Optional) The ID of Droplet that the Floating IP will be assigned to. | `string` | `null` | no |
-| <a name="input_ip_count"></a> [ip\_count](#input\_ip\_count) | The number of loating IPs to create | `number` | `1` | no |
-| <a name="input_region"></a> [region](#input\_region) | (Required) The region that the Floating IP is reserved to. | `string` | `"sgp1"` | no |
+| <a name="input_droplet_ids"></a> [droplet\_ids](#input\_droplet\_ids) | The list of the IDs of the Droplets assigned to the Firewall. | `list(string)` | `[]` | no |
+| <a name="input_inbound_rules"></a> [inbound\_rules](#input\_inbound\_rules) | The inbound and outbound access rule block for the Firewall. | `list(any)` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | The Firewall name. | `string` | n/a | yes |
+| <a name="input_outbound_rules"></a> [outbound\_rules](#input\_outbound\_rules) | The inbound and outbound access rule block for the Firewall. | `list(any)` | n/a | yes |
+| <a name="input_tags"></a> [tags](#input\_tags) | The names of the Tags assigned to the Firewall. | `list(string)` | `[]` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_ip_address"></a> [ip\_address](#output\_ip\_address) | n/a |
-| <a name="output_urn"></a> [urn](#output\_urn) | n/a |
+| <a name="output_created_at"></a> [created\_at](#output\_created\_at) | A time value given in ISO8601 combined date and time format that represents when the Firewall was created. |
+| <a name="output_droplet_ids"></a> [droplet\_ids](#output\_droplet\_ids) | The list of the IDs of the Droplets assigned to the Firewall. |
+| <a name="output_id"></a> [id](#output\_id) | A unique ID that can be used to identify and reference a Firewall. |
+| <a name="output_name"></a> [name](#output\_name) | The name of the Firewall. |
+| <a name="output_pending_changes"></a> [pending\_changes](#output\_pending\_changes) | A list of object containing the fields, "droplet\_id", "removing", and "status". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied. |
+| <a name="output_status"></a> [status](#output\_status) | A status string indicating the current state of the Firewall. This can be "waiting", "succeeded", or "failed". |
+| <a name="output_tags"></a> [tags](#output\_tags) | The names of the Tags assigned to the Firewall. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
