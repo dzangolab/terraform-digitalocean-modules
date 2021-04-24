@@ -16,7 +16,7 @@ variable "ip_count" {
 }
 
 variable "project_id" {
-  default = null
+  default     = null
   description = "The id of the project to which the Floating IPs will be moved to."
   type        = string
 }
