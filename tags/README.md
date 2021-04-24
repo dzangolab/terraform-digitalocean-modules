@@ -31,7 +31,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_digitalocean_token"></a> [digitalocean\_token](#input\_digitalocean\_token) | Digital Ocean token | `string` | n/a | yes |
-| <a name="input_names"></a> [names](#input\_names) | The names of the tags. | `string` | n/a | yes |
+| <a name="input_names"></a> [names](#input\_names) | The names of the tags. | `list(string)` | n/a | yes |
 
 ## Outputs
 

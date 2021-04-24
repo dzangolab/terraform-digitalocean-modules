@@ -5,5 +5,5 @@ variable "digitalocean_token" {
 
 variable "names" {
   description = "The names of the tags."
-  type        = string
+  type        = list(string)
 }
