@@ -30,7 +30,7 @@ output "outbound_rules" {
 
 output "pending_changes" {
   description = "A list of object containing the fields, \"droplet_id\", \"removing\", and \"status\". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied."
-  value = digital-cean_firewall.this.pending_changes
+  value = digitalocean_firewall.this.pending_changes
 }
 
 output "status" {
