@@ -4,7 +4,7 @@ resource "digitalocean_firewall" "this" {
   tags = var.tags
 
   dynamic "inbound_rule" {
-    for_each var.rules {
+    for_each = var.rules {
       content {
         protocol = inbound_rule.value["protocol"]
         source_tags = inbound_rule.value["source_tags"] 
