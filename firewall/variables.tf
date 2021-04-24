@@ -6,7 +6,12 @@ variable "digitalocean_token" {
 variable "droplet_ids" {
   default     = []
   description = "The list of the IDs of the Droplets assigned to the Firewall."
-  type        = array(string)
+  type        = list(string)
+}
+
+variable "inbound_rules" {
+  description = "The inbound and outbound access rule block for the Firewall."
+  type        = list(any)
 }
 
 variable "name" {
@@ -14,8 +19,13 @@ variable "name" {
   type        = string
 }
 
+variable "outbound_rules" {
+  description = "The inbound and outbound access rule block for the Firewall."
+  type        = list(any)
+}
+
 variable "tags" {
   default     = []
   description = "The names of the Tags assigned to the Firewall."
-  type        = array(string)
+  type        = list(string)
 }

@@ -5,40 +5,30 @@ output "created_at" {
 
 output "droplet_ids" {
   description = "The list of the IDs of the Droplets assigned to the Firewall."
-  value = digitalocean_firewall.this.droplet_ids
+  value       = digitalocean_firewall.this.droplet_ids
 }
 
 output "id" {
   description = "A unique ID that can be used to identify and reference a Firewall."
-  value = digitalocean_firewall.this.id
-}
-
-output "inbound_rules" {
-  description = "The inbound access rule block for the Firewall."
-  value = digitalocean_firewall.this.inbound_rules
+  value       = digitalocean_firewall.this.id
 }
 
 output "name" {
   description = "The name of the Firewall."
-  value = digitalocean_firewall.this.name
-}
-
-output "outbound_rules" {
-  description = "The outbound access rule block for the Firewall."
-  value = digitalocean_firewall.this.outbound_rules
+  value       = digitalocean_firewall.this.name
 }
 
 output "pending_changes" {
   description = "A list of object containing the fields, \"droplet_id\", \"removing\", and \"status\". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied."
-  value = digital-cean_firewall.this.pending_changes
+  value       = digitalocean_firewall.this.pending_changes
 }
 
 output "status" {
   description = "A status string indicating the current state of the Firewall. This can be \"waiting\", \"succeeded\", or \"failed\"."
-  value = digitalocean_firewall.this.status
+  value       = digitalocean_firewall.this.status
 }
 
 output "tags" {
   description = "The names of the Tags assigned to the Firewall."
-  value = digitalocean_firewall.this.tags
+  value       = digitalocean_firewall.this.tags
 }
