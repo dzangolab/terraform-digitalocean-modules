@@ -9,7 +9,7 @@ variable "droplet_ids" {
   type        = list(string)
 }
 
-variable "rules" {
+variable "inbound_rules" {
   description = "The inbound and outbound access rule block for the Firewall."
   type = list
 }
@@ -17,6 +17,11 @@ variable "rules" {
 variable "name" {
   description = "The Firewall name."
   type        = string
+}
+
+variable "outbound_rules" {
+  description = "The inbound and outbound access rule block for the Firewall."
+  type = list
 }
 
 variable "tags" {
