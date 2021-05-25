@@ -37,6 +37,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_ids"></a> [ids](#output\_ids) | The id of the tag. |
-| <a name="output_names"></a> [names](#output\_names) | The name of the tag. |
+| <a name="output_ids"></a> [ids](#output\_ids) | The list of id of the new tags. |
+| <a name="output_names"></a> [names](#output\_names) | The list of name of the tags. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
