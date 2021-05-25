@@ -1,6 +1,6 @@
 # DigitalOcean tag module
 
-This module provisions multiple DigitalOcean tags.
+This module provisions multiple DigitalOcean tags. It excludes any pre-existing tags, in order to avoid duplicate tags.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
