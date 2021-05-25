@@ -6,7 +6,7 @@ data "digitalocean_tags" "existing_tags" {
 }
 
 locals {
-  new_tags = tolist(setsubtract(var.tags, data.digitalocean_tags.existing_tags.tags[*].name))
+  new_tags = tolist(setsubtract(var.names, data.digitalocean_tags.existing_tags.tags.*.name))
 }
 
 resource "digitalocean_tag" "this" {
