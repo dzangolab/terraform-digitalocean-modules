@@ -13,12 +13,12 @@ resource "digitalocean_droplet" "this" {
   ssh_keys   = data.digitalocean_ssh_key.ssh_keys.*.id
   tags       = var.tags
   user_data = templatefile(var.user_data, {
-    groups    = join(",", var.user_groups)
-    packages  = var.packages
-    ssh_keys  = data.digitalocean_ssh_key.ssh_keys[*].public_key
-    username  = var.username
+    groups   = join(",", var.user_groups)
+    packages = var.packages
+    ssh_keys = data.digitalocean_ssh_key.ssh_keys[*].public_key
+    username = var.username
   })
-  vpc_uuid   = var.vpc_id
+  vpc_uuid = var.vpc_id
 }
 
 resource "digitalocean_project_resources" "project" {

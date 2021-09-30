@@ -1,9 +1,3 @@
-variable "ansible_inventory" {
-  default     = "templates/hosts.tmpl"
-  description = "Template for generating the ansible inventory"
-  type        = string
-}
-
 variable "digitalocean_token" {
   description = "Digital Ocean token"
   type        = string
