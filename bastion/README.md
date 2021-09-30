@@ -74,6 +74,7 @@ No modules.
 | <a name="output_name"></a> [name](#output\_name) | The name of the droplet |
 | <a name="output_price_hourly"></a> [price\_hourly](#output\_price\_hourly) | Droplet hourly price |
 | <a name="output_price_monthly"></a> [price\_monthly](#output\_price\_monthly) | Droplet monthly price |
+| <a name="output_private_networking"></a> [private\_networking](#output\_private\_networking) | Is private networking enabled |
 | <a name="output_size"></a> [size](#output\_size) | The droplet size |
 | <a name="output_status"></a> [status](#output\_status) | The status of the droplet |
 | <a name="output_tags"></a> [tags](#output\_tags) | The tags associated with the Droplet |

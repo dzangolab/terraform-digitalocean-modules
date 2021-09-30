@@ -1,6 +1,6 @@
 locals {
   floating_ip = var.floating_ip
-  username    = var.username
+  username = var.username
 }
 
 output "disk" {
@@ -77,21 +77,3 @@ output "vcpus" {
   description = "The number of the droplet's virtual CPUs"
   value       = digitalocean_droplet.this.vcpus
 }
-
-output "volume_ids" {
-  description = "A list of the attached block storage volumes"
-  value       = digitalocean_droplet.this.volume_ids
-}
-
-resource "local_file" "ansible_inventory" {
-  content = templatefile(
-    var.ansible_inventory,
-    {
-      name      = digitalocean_droplet.this.name
-      public_ip = local.floating_ip != null ? local.floating_ip : digitalocean_droplet.this.ipv4_address
-      username  = local.username
-    }
-  )
-  filename = "hosts"
-}
-
