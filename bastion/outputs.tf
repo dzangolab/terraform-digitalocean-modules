@@ -80,7 +80,7 @@ output "vcpus" {
 
 resource "local_file" "ssh_config" {
   content = templatefile(
-    ssh-config,
+    "templates/ssh-config",
     {
       name      = digitalocean_droplet.this.name
       public_ip = local.floating_ip != null ? local.floating_ip : digitalocean_droplet.this.ipv4_address
