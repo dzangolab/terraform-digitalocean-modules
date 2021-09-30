@@ -1,5 +1,6 @@
 locals {
   floating_ip = var.floating_ip
+  username = var.username
 }
 
 output "disk" {
@@ -93,6 +94,7 @@ resource "local_file" "ansible_inventory" {
     {
       name      = digitalocean_droplet.this.name
       public_ip = local.floating_ip != null ? local.floating_ip : digitalocean_droplet.this.ipv4_address
+      username  = local.username
     }
   )
   filename = "hosts"
