@@ -14,7 +14,7 @@ This module provisions multiple DigitalOcean tags. It excludes any pre-existing 
 
 | Name | Version |
 |------|---------|
-| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | >= 1.22.2 |
+| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.8.0 |
 
 ## Modules
 
@@ -25,6 +25,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [digitalocean_tag.this](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/tag) | resource |
+| [digitalocean_tags.existing_tags](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/data-sources/tags) | data source |
 
 ## Inputs
 

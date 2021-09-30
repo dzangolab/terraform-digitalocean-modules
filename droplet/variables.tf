@@ -49,12 +49,6 @@ variable "packages" {
   type        = list(string)
 }
 
-variable "private_networking" {
-  default     = true
-  description = "Boolean controlling if private networking is enabled. When VPC is enabled on an account, this will provision the droplet inside of your account's default VPC for the region. Use the vpc_uuid attribute to specify a different VPC."
-  type        = bool
-}
-
 variable "project_id" {
   description = "The ID of the project to which the droplet is assigned"
   type        = string

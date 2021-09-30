@@ -4,16 +4,15 @@ data "digitalocean_ssh_key" "ssh_keys" {
 }
 
 resource "digitalocean_droplet" "this" {
-  backups            = var.backups
-  image              = var.image
-  ipv6               = var.ipv6
-  monitoring         = var.monitoring
-  name               = var.name
-  private_networking = var.private_networking
-  region             = var.region
-  size               = var.size
-  ssh_keys           = data.digitalocean_ssh_key.ssh_keys.*.id
-  tags               = var.tags
+  backups    = var.backups
+  image      = var.image
+  ipv6       = var.ipv6
+  monitoring = var.monitoring
+  name       = var.name
+  region     = var.region
+  size       = var.size
+  ssh_keys   = data.digitalocean_ssh_key.ssh_keys.*.id
+  tags       = var.tags
   user_data = templatefile(var.user_data, {
     groups    = join(",", var.user_groups)
     packages  = var.packages

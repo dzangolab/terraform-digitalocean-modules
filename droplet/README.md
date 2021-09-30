@@ -16,8 +16,8 @@ This module povisions a DigitalOcean droplet.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | >= 1.22.2 |
-| <a name="provider_local"></a> [local](#provider\_local) | >= 1.4.0 |
+| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 1.22.2 |
+| <a name="provider_local"></a> [local](#provider\_local) | 1.4.0 |
 
 ## Modules
 
@@ -46,7 +46,6 @@ No modules.
 | <a name="input_monitoring"></a> [monitoring](#input\_monitoring) | Enable monitoring on droplet | `bool` | `true` | no |
 | <a name="input_name"></a> [name](#input\_name) | The droplet name | `string` | n/a | yes |
 | <a name="input_packages"></a> [packages](#input\_packages) | Packages to install on the droplet. | `list(string)` | `[]` | no |
-| <a name="input_private_networking"></a> [private\_networking](#input\_private\_networking) | Boolean controlling if private networking is enabled. When VPC is enabled on an account, this will provision the droplet inside of your account's default VPC for the region. Use the vpc\_uuid attribute to specify a different VPC. | `bool` | `true` | no |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The ID of the project to which the droplet is assigned | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The region to start in. | `string` | `"sgp1"` | no |
 | <a name="input_size"></a> [size](#input\_size) | Size of the droplet | `string` | `"s-1vcpu-2gb"` | no |
