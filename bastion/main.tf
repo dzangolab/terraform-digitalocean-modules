@@ -1,6 +1,6 @@
 data "digitalocean_ssh_key" "ssh_keys" {
-  count = length(var.ssh_keys)
-  name  = var.ssh_keys[count.index]
+  count = length(var.ssh_key_names)
+  name  = var.ssh_key_names[count.index]
 }
 
 resource "digitalocean_droplet" "this" {
@@ -10,10 +10,11 @@ resource "digitalocean_droplet" "this" {
   name       = var.name
   region     = var.region
   size       = var.size
-  ssh_keys   = data.digitalocean_ssh_key.ssh_keys.*.id
+  ssh_keys   = concat(var.ssh_keys, data.digitalocean_ssh_key.ssh_keys.*.id)
   tags       = var.tags
   user_data = templatefile(var.user_data, {
     groups   = join(",", var.user_groups)
+    name     = var.name
     packages = var.packages
     ssh_keys = data.digitalocean_ssh_key.ssh_keys[*].public_key
     username = var.username
@@ -28,6 +29,7 @@ resource "digitalocean_project_resources" "project" {
     digitalocean_droplet.this.urn
   ]
 }
+
 
 resource "digitalocean_floating_ip_assignment" "floating_ip" {
   count      = var.floating_ip != null ? 1 : 0

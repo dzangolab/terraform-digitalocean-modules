@@ -1,6 +1,6 @@
 data "digitalocean_ssh_key" "ssh_keys" {
-  count = length(var.ssh_keys)
-  name  = var.ssh_keys[count.index]
+  count = length(var.ssh_key_names)
+  name  = var.ssh_key_names[count.index]
 }
 
 resource "digitalocean_droplet" "this" {
@@ -16,7 +16,7 @@ resource "digitalocean_droplet" "this" {
   user_data = templatefile(var.user_data, {
     groups    = join(",", var.user_groups)
     packages  = var.packages
-    ssh_keys  = data.digitalocean_ssh_key.ssh_keys[*].public_key
+    ssh_keys  = concat(var.ssh_keys, data.digitalocean_ssh_key.ssh_keys.*.id)
     username  = var.username
     swap_file = var.swap_file
     swap_size = var.swap_size
