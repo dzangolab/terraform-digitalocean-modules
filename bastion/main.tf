@@ -42,7 +42,7 @@ resource "digitalocean_floating_ip_assignment" "floating_ip" {
 }
 
 resource "digitalocean_firewall" "bastion" {
-  name = "var.name"
+  name = var.name
 
   droplet_ids = [digitalocean_droplet.this.id]
 
