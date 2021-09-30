@@ -10,13 +10,13 @@ resource "digitalocean_droplet" "this" {
   name       = var.name
   region     = var.region
   size       = var.size
-  ssh_keys   = concat(var.ssh_keys, data.digitalocean_ssh_key.ssh_keys.*.id)
+  ssh_keys   = data.digitalocean_ssh_key.ssh_keys[*].id
   tags       = var.tags
-  user_data = templatefile(var.user_data, {
+  user_data  = templatefile(var.user_data, {
     groups   = join(",", var.user_groups)
     name     = var.name
     packages = var.packages
-    ssh_keys = data.digitalocean_ssh_key.ssh_keys[*].public_key
+    ssh_keys = concat(var.ssh_keys, data.digitalocean_ssh_key.ssh_keys[*].public_key)
     username = var.username
   })
   vpc_uuid = var.vpc_id
