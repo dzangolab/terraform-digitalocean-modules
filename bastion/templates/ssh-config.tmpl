@@ -1,4 +1,4 @@
-Host {name}.bastion
+Host {name}
     Hostname               {public_ip}
     ProxyCommand           none
     BatchMode              yes
@@ -6,7 +6,7 @@ Host {name}.bastion
     User                   bakup
     IdentityFile           ~/.ssh/id_ed25519
 
-Host {name}
+Host HOST
     Hostname               HOST_IP_ADDRESS
     ServerAliveInterval    60
     TCPKeepAlive           yes
@@ -14,5 +14,5 @@ Host {name}
     ControlMaster          auto
     ControlPath            ~/.ssh/mux-%r@%h:%p
     ControlPersist         8h
-    User                   bakup
+    User                   {username}
     IdentityFile           ~/.ssh/id_ed25519

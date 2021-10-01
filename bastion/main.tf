@@ -30,7 +30,6 @@ resource "digitalocean_project_resources" "project" {
   ]
 }
 
-
 resource "digitalocean_floating_ip_assignment" "floating_ip" {
   count      = var.floating_ip != null ? 1 : 0
   depends_on = [digitalocean_droplet.this]
