@@ -82,7 +82,7 @@ resource "local_file" "ssh_config" {
   content = templatefile(
     "templates/ssh-config.tmpl",
     {
-      name      = replace(digitalocean_droplet.this.name, '-', '.')
+      name      = replace(digitalocean_droplet.this.name, "-", ".")
       public_ip = local.floating_ip != null ? local.floating_ip : digitalocean_droplet.this.ipv4_address
       username  = local.username
     }
