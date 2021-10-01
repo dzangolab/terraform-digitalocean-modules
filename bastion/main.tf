@@ -37,6 +37,10 @@ resource "digitalocean_floating_ip_assignment" "floating_ip" {
   ip_address = var.floating_ip
 
   provisioner "local-exec" {
+    command = "ssh-keyscan ${self.ip_address} 2>&1 | grep -vE '^#' >> ~/.ssh/known_hosts"
+  }
+
+  provisioner "local-exec" {
     when    = destroy
     command = "sed -i -e '/^${self.ip_address} .*/d' ~/.ssh/known_hosts"
   }
