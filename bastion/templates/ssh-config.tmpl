@@ -1,18 +1,18 @@
-Host {name}
-    Hostname               {public_ip}
+Host ${name}
+    Hostname               ${public_ip}
     ProxyCommand           none
     BatchMode              yes
     PasswordAuthentication no
-    User                   bakup
+    User                   ${username}
     IdentityFile           ~/.ssh/id_ed25519
 
 Host HOST
     Hostname               HOST_IP_ADDRESS
     ServerAliveInterval    60
     TCPKeepAlive           yes
-    ProxyCommand           ssh -q -A {username}@{public_ip} nc %h %p
+    ProxyCommand           ssh -q -A ${username}@${public_ip} nc %h %p
     ControlMaster          auto
     ControlPath            ~/.ssh/mux-%r@%h:%p
     ControlPersist         8h
-    User                   {username}
+    User                   ${username}
     IdentityFile           ~/.ssh/id_ed25519
