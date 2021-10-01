@@ -22,4 +22,4 @@ runcmd:
   - sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config
   - sed -i -e '$aAllowUsers ${username}' /etc/ssh/sshd_config
   - service ssh restart
-  - ssh-keygen -t ed25519 -a 200 -C bastion@${name}
+  - ssh-keygen -t ed25519 -a 200 -C bastion@${name} -f /home/${username}/.ssh/id_ed25519 -N ''
