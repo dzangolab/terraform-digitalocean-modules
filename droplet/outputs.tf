@@ -84,7 +84,6 @@ output "volume_ids" {
 }
 
 resource "local_file" "ansible_inventory" {
-  description = "Ansible inventory"
   content = templatefile(
     var.ansible_inventory,
     {
@@ -97,7 +96,6 @@ resource "local_file" "ansible_inventory" {
 }
 
 resource "local_file" "private_ip" {
-  description = "Ansible-formatted variable file to store the private ip of the droplet. This is useful if you want to initiate a Docker swarm on this droplet."
   content = templatefile(
     var.private_ip_template,
     {
