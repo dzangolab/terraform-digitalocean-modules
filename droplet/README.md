@@ -31,6 +31,7 @@ No modules.
 | [digitalocean_floating_ip_assignment.floating_ip](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/floating_ip_assignment) | resource |
 | [digitalocean_project_resources.project](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/project_resources) | resource |
 | [local_file.ansible_inventory](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
+| [local_file.private_ip](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [digitalocean_ssh_key.ssh_keys](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/data-sources/ssh_key) | data source |
 
 ## Inputs
@@ -46,10 +47,12 @@ No modules.
 | <a name="input_monitoring"></a> [monitoring](#input\_monitoring) | Enable monitoring on droplet | `bool` | `true` | no |
 | <a name="input_name"></a> [name](#input\_name) | The droplet name | `string` | n/a | yes |
 | <a name="input_packages"></a> [packages](#input\_packages) | Packages to install on the droplet. | `list(string)` | `[]` | no |
+| <a name="input_private_ip_template"></a> [private\_ip\_template](#input\_private\_ip\_template) | The path to the tempalte file for the private ip. | `string` | `"./templates/private_ip.tmpl"` | no |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The ID of the project to which the droplet is assigned | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The region to start in. | `string` | `"sgp1"` | no |
 | <a name="input_size"></a> [size](#input\_size) | Size of the droplet | `string` | `"s-1vcpu-2gb"` | no |
-| <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | A list of SSH key names to enable on droplet | `list(string)` | n/a | yes |
+| <a name="input_ssh_key_names"></a> [ssh\_key\_names](#input\_ssh\_key\_names) | A list of SSH key names to enable on droplet. These are the names of SSH keys registered in DigitalOcean. | `list(string)` | n/a | yes |
+| <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | A list of SSH keys to enable on droplet | `list(string)` | n/a | yes |
 | <a name="input_swap_file"></a> [swap\_file](#input\_swap\_file) | Name of swap file | `string` | `"/swap"` | no |
 | <a name="input_swap_size"></a> [swap\_size](#input\_swap\_size) | Size of swapfile in bytes | `number` | `0` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A list of tags to apply on droplet | `list(string)` | `[]` | no |

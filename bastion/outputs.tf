@@ -1,6 +1,6 @@
 locals {
   floating_ip = var.floating_ip
-  username = var.username
+  username    = var.username
 }
 
 output "disk" {

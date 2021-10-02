@@ -16,7 +16,8 @@ This module povisions a DigitalOcean droplet.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | >= 1.22.2 |
+| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.12.0 |
+| <a name="provider_local"></a> [local](#provider\_local) | 2.1.0 |
 
 ## Modules
 
@@ -30,6 +31,7 @@ No modules.
 | [digitalocean_firewall.bastion](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/firewall) | resource |
 | [digitalocean_floating_ip_assignment.floating_ip](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/floating_ip_assignment) | resource |
 | [digitalocean_project_resources.project](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/project_resources) | resource |
+| [local_file.ssh_config](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [digitalocean_ssh_key.ssh_keys](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/data-sources/ssh_key) | data source |
 
 ## Inputs
@@ -46,7 +48,8 @@ No modules.
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The ID of the project to which the droplet is assigned | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The region to start in. | `string` | `"sgp1"` | no |
 | <a name="input_size"></a> [size](#input\_size) | Size of the droplet | `string` | `"s-1vcpu-2gb"` | no |
-| <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | A list of SSH key names to enable on droplet | `list(string)` | n/a | yes |
+| <a name="input_ssh_key_names"></a> [ssh\_key\_names](#input\_ssh\_key\_names) | A list of SSH key names to enable on droplet. These are the names of SSH keys registered in DigitalOcean. | `list(string)` | n/a | yes |
+| <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | A list of SSH keys to enable on droplet | `list(string)` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | A list of tags to apply on droplet | `list(string)` | `[]` | no |
 | <a name="input_user_data"></a> [user\_data](#input\_user\_data) | Relative path to user-data template file | `string` | `"./templates/cloud-config.tmpl"` | no |
 | <a name="input_user_groups"></a> [user\_groups](#input\_user\_groups) | List of groups to assign to user | `list(string)` | <pre>[<br>  "sudo"<br>]</pre> | no |

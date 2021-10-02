@@ -49,6 +49,12 @@ variable "packages" {
   type        = list(string)
 }
 
+variable "private_ip_template" {
+  default     = "./templates/private_ip.tmpl"
+  description = "The path to the tempalte file for the private ip."
+  type        = string
+}
+
 variable "project_id" {
   description = "The ID of the project to which the droplet is assigned"
   type        = string

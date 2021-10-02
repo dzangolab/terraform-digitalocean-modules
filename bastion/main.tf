@@ -12,7 +12,7 @@ resource "digitalocean_droplet" "this" {
   size       = var.size
   ssh_keys   = data.digitalocean_ssh_key.ssh_keys[*].id
   tags       = var.tags
-  user_data  = templatefile(var.user_data, {
+  user_data = templatefile(var.user_data, {
     groups   = join(",", var.user_groups)
     name     = var.name
     packages = var.packages
