@@ -21,8 +21,8 @@ package_reboot_if_required: true
 bootcmd:
 %{ for volume in volumes ~}
   - mkdir ${volume.path}
-  - chown ${username}:${username} ${volume.path}
   - mount -o discard,defaults,noatime /dev/disk/by-id/scsi-0DO_Volume_${volume.name} ${volume.path}
+  - chown ${username}:${username} ${volume.path}
 %{ endfor ~}
 
 mounts:
