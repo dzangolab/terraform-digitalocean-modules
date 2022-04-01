@@ -14,7 +14,7 @@ This module provisions multiple DigitalOcean tags. It excludes any pre-existing 
 
 | Name | Version |
 |------|---------|
-| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.8.0 |
+| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.19.0 |
 
 ## Modules
 

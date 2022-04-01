@@ -16,8 +16,8 @@ This module povisions a DigitalOcean droplet.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 1.22.2 |
-| <a name="provider_local"></a> [local](#provider\_local) | 1.4.0 |
+| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.19.0 |
+| <a name="provider_local"></a> [local](#provider\_local) | 2.2.2 |
 
 ## Modules
 

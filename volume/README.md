@@ -1,4 +1,4 @@
-# DigitalOcean Floating IP module
+# DigitalOcean Block Storage module
 
 This module provisions a DigitalOcean block-storage volume.
 
@@ -14,7 +14,7 @@ This module provisions a DigitalOcean block-storage volume.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | >= 1.22.2 |
+| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.19.0 |
 
 ## Modules
 
