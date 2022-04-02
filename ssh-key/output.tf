@@ -13,7 +13,7 @@ output "ids" {
 }
 
 output "keys" {
-  description: "The SSH keys"
+  description = "The SSH keys"
   value = digitalocean_ssh_key.this
 }
 
