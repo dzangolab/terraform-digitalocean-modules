@@ -14,14 +14,7 @@ output "ids" {
 
 output "keys" {
   description: "The SSH keys"
-  value = {
-    for k,v in digitalocean_ssh_key.this: k => {
-      "fingerprint": v.fingerprint,
-      "id": v.id,
-      "name": v.name
-      "public_key": v.public_key
-    }
-  }
+  value = digitalocean_ssh_key.this
 }
 
 output "names" {
