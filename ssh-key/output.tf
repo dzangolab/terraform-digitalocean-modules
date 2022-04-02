@@ -1,19 +1,39 @@
-output "id" {
-  description = "The unique ID of the key."
-  value       = digitalocean_ssh_key.this.id
+output "fingerprints" {
+  description = "The fingerprints of the SSH keys."
+  value       = {
+    for k,v in digitalocean_ssh_key.this: v.fingerprint
+  }
 }
 
-output "name" {
-  description = "The name of the SSH key."
-  value       = digitalocean_ssh_key.this.name
+output "ids" {
+  description = "The unique IDs of the SSH keys."
+  value       = {
+    for k,v in digitalocean_ssh_key.this: v.id
+  }
 }
 
-output "public_key" {
-  description = "The text of the public key."
-  value       = digitalocean_ssh_key.this.public_key
+output "keys" {
+  description: "The SSH keys"
+  value = {
+    for k,v in digitalocean_ssh_key.this: {
+      "fingerprint": v.fingerprint,
+      "id": v.id,
+      "name": v.name
+      "public_key": v.public_key
+    }
+  }
 }
 
-output "fingerprint" {
-  description = "The fingerprint of the SSH key."
-  value       = digitalocean_ssh_key.this.fingerprint
+output "names" {
+  description = "The names of the SSH keys."
+  value       = {
+    for k,v in digitalocean_ssh_key.this: v.name
+  }
+}
+
+output "public_keys" {
+  description = "The text of the public SSH keys."
+  value       = {
+    for k,v in digitalocean_ssh_key.this: v.public_key
+  }
 }
