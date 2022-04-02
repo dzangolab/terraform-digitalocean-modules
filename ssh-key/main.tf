@@ -1,6 +1,6 @@
 resource "digitalocean_ssh_key" "this" {
-  for_each = var.keys
+  for_each = { for key in var.keys : key.name => key }
 
-  name       = each.value.name
+  name       = each.value.key
   public_key = file(each.value.public_key)
 }
