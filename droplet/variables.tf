@@ -73,11 +73,13 @@ variable "size" {
 }
 
 variable "ssh_keys" {
+  default     = []
   description = "A list of SSH keys to enable on droplet"
   type        = list(string)
 }
 
 variable "ssh_key_names" {
+  default     = []
   description = "A list of SSH key names to enable on droplet. These are the names of SSH keys registered in DigitalOcean."
   type        = list(string)
 }
