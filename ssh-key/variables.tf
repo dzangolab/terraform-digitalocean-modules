@@ -6,7 +6,7 @@ variable "digitalocean_token" {
 variable "keys" {
   description = "The keys to be created."
   type        = list(object({
-    name = string,
+    name = string
     public_key = string
   }))
 }
