@@ -34,11 +34,11 @@ resource "digitalocean_project_resources" "project" {
   ]
 }
 
-resource "digitalocean_floating_ip_assignment" "floating_ip" {
-  count      = var.floating_ip != null ? 1 : 0
+resource "digitalocean_reserved_ip_assignment" "reserved_ip" {
+  count      = var.reserved_ip != null ? 1 : 0
   depends_on = [digitalocean_droplet.this]
   droplet_id = digitalocean_droplet.this.id
-  ip_address = var.floating_ip
+  ip_address = var.reserved_ip
 
   provisioner "local-exec" {
     command = "ssh-keyscan ${self.ip_address} 2>&1 | grep -vE '^#' >> ~/.ssh/known_hosts"

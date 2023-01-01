@@ -15,12 +15,6 @@ variable "digitalocean_token" {
   type        = string
 }
 
-variable "floating_ip" {
-  default     = null
-  description = "Floating IP address(if available) to assign to the droplet"
-  type        = string
-}
-
 variable "image" {
   default     = "ubuntu-20-04-x64"
   description = "The droplet image ID or slug."
@@ -63,6 +57,12 @@ variable "project_id" {
 variable "region" {
   default     = "sgp1"
   description = "The region to start in."
+  type        = string
+}
+
+variable "reserved_ip" {
+  default     = null
+  description = "Reserved IP address(if available) to assign to the droplet"
   type        = string
 }
 
