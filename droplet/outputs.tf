@@ -1,5 +1,5 @@
 locals {
-  floating_ip = var.floating_ip
+  reserved_ip = var.reserved_ip
   username    = var.username
 }
 
@@ -88,7 +88,7 @@ resource "local_file" "ansible_inventory" {
     var.ansible_inventory,
     {
       name      = digitalocean_droplet.this.name
-      public_ip = local.floating_ip != null ? local.floating_ip : digitalocean_droplet.this.ipv4_address
+      public_ip = local.reserved_ip != null ? local.reserved_ip : digitalocean_droplet.this.ipv4_address
       username  = local.username
     }
   )
