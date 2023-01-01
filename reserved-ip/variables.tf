@@ -5,13 +5,13 @@ variable "digitalocean_token" {
 
 variable "droplet_id" {
   default     = null
-  description = "The ID of Droplet that the Floating IPs will be assigned to."
+  description = "The ID of Droplet that the reserved IPs will be assigned to."
   type        = string
 }
 
 variable "ip_count" {
   default     = 1
-  description = "The number of Floating IPs to create"
+  description = "The number of reserved IPs to create"
   type        = number
 }
 
